@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		451D7B1A235845B100095112 /* AppComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451D7B19235845B100095112 /* AppComponent.swift */; };
-		4539A7B3235437660081362B /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539A7B2235437660081362B /* NewsViewController.swift */; };
+		4539A7B3235437660081362B /* GifsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539A7B2235437660081362B /* GifsListViewController.swift */; };
 		4539A7B52354376F0081362B /* ConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539A7B42354376F0081362B /* ConfigViewController.swift */; };
-		4539A7B723543B1C0081362B /* NewsListUnitsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539A7B623543B1C0081362B /* NewsListUnitsFactory.swift */; };
+		4539A7B723543B1C0081362B /* GifsListUnitsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539A7B623543B1C0081362B /* GifsListUnitsFactory.swift */; };
 		4539A7BE2354471C0081362B /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4539A7BD2354471C0081362B /* NewsTableViewCell.swift */; };
 		4539A7C02354472A0081362B /* NewsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4539A7BF2354472A0081362B /* NewsTableViewCell.xib */; };
 		4587E6063EE4F8F2D5A7AFB7 /* Pods_ios_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 363BA6BFAA3FA87230445070 /* Pods_ios_app.framework */; };
@@ -24,9 +24,9 @@
 		287627FF1F319065007FA12B /* mokoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mokoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		363BA6BFAA3FA87230445070 /* Pods_ios_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		451D7B19235845B100095112 /* AppComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComponent.swift; sourceTree = "<group>"; };
-		4539A7B2235437660081362B /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		4539A7B2235437660081362B /* GifsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifsListViewController.swift; sourceTree = "<group>"; };
 		4539A7B42354376F0081362B /* ConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigViewController.swift; sourceTree = "<group>"; };
-		4539A7B623543B1C0081362B /* NewsListUnitsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsListUnitsFactory.swift; sourceTree = "<group>"; };
+		4539A7B623543B1C0081362B /* GifsListUnitsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifsListUnitsFactory.swift; sourceTree = "<group>"; };
 		4539A7BD2354471C0081362B /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		4539A7BF2354472A0081362B /* NewsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsTableViewCell.xib; sourceTree = "<group>"; };
 		45964D362282A1FD00C16658 /* mpp-library */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "mpp-library"; path = "../mpp-library"; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				4539A7B42354376F0081362B /* ConfigViewController.swift */,
-				4539A7B2235437660081362B /* NewsViewController.swift */,
+				4539A7B2235437660081362B /* GifsListViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -100,7 +100,7 @@
 			children = (
 				4539A7BD2354471C0081362B /* NewsTableViewCell.swift */,
 				4539A7BF2354472A0081362B /* NewsTableViewCell.xib */,
-				4539A7B623543B1C0081362B /* NewsListUnitsFactory.swift */,
+				4539A7B623543B1C0081362B /* GifsListUnitsFactory.swift */,
 			);
 			path = units;
 			sourceTree = "<group>";
@@ -252,10 +252,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				45F47922219463C7003D25FA /* AppDelegate.swift in Sources */,
-				4539A7B723543B1C0081362B /* NewsListUnitsFactory.swift in Sources */,
+				4539A7B723543B1C0081362B /* GifsListUnitsFactory.swift in Sources */,
 				4539A7BE2354471C0081362B /* NewsTableViewCell.swift in Sources */,
 				4539A7B52354376F0081362B /* ConfigViewController.swift in Sources */,
-				4539A7B3235437660081362B /* NewsViewController.swift in Sources */,
+				4539A7B3235437660081362B /* GifsListViewController.swift in Sources */,
 				451D7B1A235845B100095112 /* AppComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

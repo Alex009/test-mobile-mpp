@@ -11,7 +11,7 @@
         android:icon="@mipmap/ic_launcher">
 
         <activity android:name=".view.ConfigActivity"/>
-        <activity android:name=".view.NewsActivity" >
+        <activity android:name=".view.GifsListActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

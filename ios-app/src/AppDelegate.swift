@@ -23,7 +23,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
             settings: AppleSettings(delegate: UserDefaults.standard),
             antilog: DebugAntilog(defaultTag: "MPP"),
             baseUrl: "https://api.giphy.com/v1/",
-            newsUnitsFactory: NewsListUnitsFactory()
+            gifsUnitsFactory: GifsListUnitsFactory()
         )
         return true
     }

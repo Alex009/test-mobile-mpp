@@ -2,7 +2,7 @@
  * Copyright 2019 IceRock MAG Inc. Use of this source code is governed by the Apache 2.0 license.
  */
 
-package org.example.library.feature.news.presentation
+package ru.alex009.library.feature.gifs.presentation
 
 import dev.icerock.moko.mvvm.State
 import dev.icerock.moko.mvvm.asState
@@ -13,26 +13,25 @@ import dev.icerock.moko.resources.desc.StringDesc
 import dev.icerock.moko.resources.desc.desc
 import dev.icerock.moko.units.UnitItem
 import kotlinx.coroutines.launch
-import org.example.library.feature.news.model.News
-import org.example.library.feature.news.model.NewsSource
+import ru.alex009.library.feature.gifs.model.Gif
+import ru.alex009.library.feature.gifs.model.GifsSource
 
-class NewsListViewModel(
-    private val newsSource: NewsSource,
+class GifsListViewModel(
+    private val gifsSource: GifsSource,
     private val strings: Strings,
     private val unitsFactory: UnitsFactory
 ) : ViewModel() {
 
-    private val _state: MutableLiveData<State<List<News>, Throwable>> =
+    private val _state: MutableLiveData<State<List<Gif>, Throwable>> =
         MutableLiveData(initialValue = State.Loading())
 
     val state: LiveData<State<List<UnitItem>, StringDesc>> = _state
         .dataTransform {
             map { news ->
                 news.map { item ->
-                    unitsFactory.createNewsTile(
+                    unitsFactory.createGifTile(
                         id = item.id,
-                        title = item.title,
-                        description = item.description?.desc() ?: strings.noDescription.desc()
+                        gifUrl = item.previewUrl
                     )
                 }
             }
@@ -58,7 +57,7 @@ class NewsListViewModel(
             try {
                 _state.value = State.Loading()
 
-                val items = newsSource.getNewsList()
+                val items = gifsSource.getGifsList("ice")
 
                 _state.value = items.asState()
             } catch (error: Throwable) {
@@ -68,15 +67,13 @@ class NewsListViewModel(
     }
 
     interface UnitsFactory {
-        fun createNewsTile(
+        fun createGifTile(
             id: Long,
-            title: String,
-            description: StringDesc
+            gifUrl: String
         ): UnitItem
     }
 
     interface Strings {
         val unknownError: StringResource
-        val noDescription: StringResource
     }
 }

@@ -12,19 +12,19 @@ import dev.icerock.moko.mvvm.createViewModelFactory
 import org.example.app.AppComponent
 import org.example.app.BR
 import org.example.app.R
-import org.example.app.databinding.ActivityNewsBinding
-import org.example.library.feature.news.presentation.NewsListViewModel
+import org.example.app.databinding.ActivityGifsListBinding
+import ru.alex009.library.feature.gifs.presentation.GifsListViewModel
 
 // MvvmActivity for simplify creation of MVVM screen with https://github.com/icerockdev/moko-mvvm
-class NewsActivity : MvvmActivity<ActivityNewsBinding, NewsListViewModel>() {
-    override val layoutId: Int = R.layout.activity_news
-    override val viewModelClass: Class<NewsListViewModel> = NewsListViewModel::class.java
+class GifsListActivity : MvvmActivity<ActivityGifsListBinding, GifsListViewModel>() {
+    override val layoutId: Int = R.layout.activity_gifs_list
+    override val viewModelClass: Class<GifsListViewModel> = GifsListViewModel::class.java
     override val viewModelVariableId: Int = BR.viewModel
 
     // createViewModelFactory is extension from https://github.com/icerockdev/moko-mvvm
     // ViewModel not recreating at configuration changes
     override fun viewModelFactory(): ViewModelProvider.Factory = createViewModelFactory {
-        AppComponent.factory.newsFactory.createNewsListViewModel()
+        AppComponent.factory.gifsFactory.createGifsListViewModel()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="org.example.library.feature.news.presentation.NewsListViewModel" />
+            type="ru.alex009.library.feature.gifs.presentation.GifsListViewModel" />
     </data>
 
     <FrameLayout

@@ -8,20 +8,20 @@ import MultiPlatformLibrary
 import MultiPlatformLibraryMvvm
 import MultiPlatformLibraryUnits
 
-class NewsViewController: UIViewController {
+class GifsListViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     @IBOutlet private var emptyView: UIView!
     @IBOutlet private var errorView: UIView!
     @IBOutlet private var errorLabel: UILabel!
     
-    private var viewModel: NewsListViewModel!
+    private var viewModel: GifsListViewModel!
     private var dataSource: FlatUnitTableViewDataSource!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        viewModel = AppComponent.factory.newsFactory.createNewsListViewModel()
+        viewModel = AppComponent.factory.gifsFactory.createGifsListViewModel()
 
         // binding methods from https://github.com/icerockdev/moko-mvvm
         activityIndicator.bindVisibility(liveData: viewModel.state.isLoadingState())

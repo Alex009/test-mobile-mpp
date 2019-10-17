@@ -88,7 +88,7 @@
         <!--Giphy App-->
         <scene sceneID="VGx-eG-QFb">
             <objects>
-                <viewController id="rc3-Fb-lqP" customClass="NewsViewController" customModule="mokoApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="rc3-Fb-lqP" customClass="GifsListViewController" customModule="mokoApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y1O-DX-kvI"/>
                         <viewControllerLayoutGuide type="bottom" id="1nA-E3-pck"/>

@@ -6,17 +6,13 @@ import UIKit
 import MultiPlatformLibrary
 import MultiPlatformLibraryUnits
 
-class GifsListUnitsFactory: NewsListViewModelUnitsFactory {
-    func createNewsTile(
-        id: Int64,
-        title: String,
-        description: StringDesc) -> UnitItem {
-        // create unit for https://github.com/icerockdev/moko-units
+class GifsListUnitsFactory: GifsListViewModelUnitsFactory {
+    func createGifTile(id: Int64, gifUrl: String) -> UnitItem {
         return UITableViewCellUnit<NewsTableViewCell>(
             data: NewsTableViewCell.CellModel(
                 id: id,
-                title: title,
-                description: description.localized()
+                title: gifUrl,
+                description: gifUrl
             ),
             configurator: nil
         )

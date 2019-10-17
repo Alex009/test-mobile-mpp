@@ -14,39 +14,38 @@ import org.example.library.domain.di.DomainFactory
 import org.example.library.feature.config.di.ConfigFactory
 import org.example.library.feature.config.model.ConfigStore
 import org.example.library.feature.config.presentation.ConfigViewModel
-import org.example.library.feature.news.di.NewsFactory
-import org.example.library.feature.news.model.News
-import org.example.library.feature.news.model.NewsSource
-import org.example.library.feature.news.presentation.NewsListViewModel
+import ru.alex009.library.feature.gifs.di.GifsFactory
+import ru.alex009.library.feature.gifs.model.Gif
+import ru.alex009.library.feature.gifs.model.GifsSource
+import ru.alex009.library.feature.gifs.presentation.GifsListViewModel
 
 class SharedFactory(
     settings: Settings,
     antilog: Antilog,
     baseUrl: String,
-    newsUnitsFactory: NewsListViewModel.UnitsFactory
+    gifsUnitsFactory: GifsListViewModel.UnitsFactory
 ) {
     private val domainFactory = DomainFactory(
         settings = settings,
         baseUrl = baseUrl
     )
 
-    val newsFactory = NewsFactory(
-        newsSource = object : NewsSource {
-            override suspend fun getNewsList(): List<News> {
-                return domainFactory.gifRepository.getGifList("ice").map { item ->
-                    News(
+    val gifsFactory = GifsFactory(
+        gifsSource = object : GifsSource {
+            override suspend fun getGifsList(query: String): List<Gif> {
+                return domainFactory.gifRepository.getGifList(query).map { item ->
+                    Gif(
                         id = item.id.toLong(),
-                        title = item.previewUrl,
-                        description = item.gifUrl
+                        previewUrl = item.previewUrl,
+                        sourceUrl = item.gifUrl
                     )
                 }
             }
         },
-        newsListStrings = object : NewsListViewModel.Strings {
+        gifsListStrings = object : GifsListViewModel.Strings {
             override val unknownError: StringResource = MR.strings.unknown_error
-            override val noDescription: StringResource = MR.strings.no_description
         },
-        newsUnitsFactory = newsUnitsFactory
+        gifsUnitsFactory = gifsUnitsFactory
     )
 
     val configFactory = ConfigFactory(
