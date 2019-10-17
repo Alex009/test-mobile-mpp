@@ -16,6 +16,6 @@ data class Gif(
 
 internal fun dev.icerock.moko.network.generated.models.Gif.toDomain(): Gif = Gif(
     id = this.url.hashCode(),
-    previewUrl = requireNotNull(this.images?.previewGif?.url) { "api can't respond without preview image" },
+    previewUrl = requireNotNull(this.images?.downsizedMedium?.url) { "api can't respond without preview image" },
     gifUrl = requireNotNull(this.images?.original?.url) { "api can't respond without original image" }
 )
