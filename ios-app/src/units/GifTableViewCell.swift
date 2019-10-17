@@ -4,38 +4,36 @@
 
 import UIKit
 import MultiPlatformLibraryUnits
+import SwiftyGif
 
 // Fillable interface from https://github.com/icerockdev/moko-units
-class NewsTableViewCell: UITableViewCell, Fillable {
+class GifTableViewCell: UITableViewCell, Fillable {
     typealias DataType = CellModel
     
     struct CellModel {
         let id: Int64
-        let title: String
-        let description: String
+        let gifUrl: String
     }
     
-    @IBOutlet private var titleLabel: UILabel!
-    @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var gifImageView: UIImageView!
     
-    func fill(_ data: NewsTableViewCell.CellModel) {
-        titleLabel.text = data.title
-        descriptionLabel.text = data.description
+    func fill(_ data: GifTableViewCell.CellModel) {
+        gifImageView.setGifFromURL(URL(string: data.gifUrl)!)
     }
     
-    func update(_ data: NewsTableViewCell.CellModel) {
+    func update(_ data: GifTableViewCell.CellModel) {
         
     }
 }
 
 // Reusable interface from https://github.com/icerockdev/moko-units
-extension NewsTableViewCell: Reusable {
+extension GifTableViewCell: Reusable {
     static func reusableIdentifier() -> String {
-        return "NewsTableViewCell"
+        return "GifTableViewCell"
     }
     
     static func xibName() -> String {
-        return "NewsTableViewCell"
+        return "GifTableViewCell"
     }
     
     static func bundle() -> Bundle {

@@ -8,11 +8,10 @@ import MultiPlatformLibraryUnits
 
 class GifsListUnitsFactory: GifsListViewModelUnitsFactory {
     func createGifTile(id: Int64, gifUrl: String) -> UnitItem {
-        return UITableViewCellUnit<NewsTableViewCell>(
-            data: NewsTableViewCell.CellModel(
+        return UITableViewCellUnit<GifTableViewCell>(
+            data: GifTableViewCell.CellModel(
                 id: id,
-                title: gifUrl,
-                description: gifUrl
+                gifUrl: gifUrl
             ),
             configurator: nil
         )

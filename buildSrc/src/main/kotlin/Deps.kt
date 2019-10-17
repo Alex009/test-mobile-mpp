@@ -36,6 +36,9 @@ object Deps {
             val lifecycle = AndroidLibrary(
                 name = "androidx.lifecycle:lifecycle-extensions:${Versions.Libs.Android.lifecycle}"
             )
+            val glide = AndroidLibrary(
+                name = "com.github.bumptech.glide:glide:${Versions.Libs.Android.glide}"
+            )
         }
 
         object MultiPlatform {
@@ -124,6 +127,12 @@ object Deps {
                 iosX64 = "com.github.aakira:napier-iosX64:${Versions.Libs.MultiPlatform.napier}",
                 iosArm64 = "com.github.aakira:napier-iosArm64:${Versions.Libs.MultiPlatform.napier}"
             )
+        }
+    }
+
+    object Kapt {
+        object Android {
+            const val glide = "com.github.bumptech.glide:compiler:${Versions.Kapt.Android.glide}"
         }
     }
 

@@ -60,6 +60,9 @@ dependencies {
 
     implementation(Deps.Libs.MultiPlatform.napier.android!!)
 
+    implementation(Deps.Libs.Android.glide.name)
+    kapt(Deps.Kapt.Android.glide)
+
     implementation(project(":mpp-library"))
 }
 

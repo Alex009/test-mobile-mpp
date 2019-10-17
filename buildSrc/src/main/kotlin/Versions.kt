@@ -14,6 +14,7 @@ object Versions {
     private const val mokoResources = "0.4.0"
     private const val mokoNetwork = "0.1.0"
     private const val mokoUnits = "0.1.0"
+    private const val glide = "4.10.0"
 
     object Plugins {
         const val kotlin = Versions.kotlin
@@ -32,6 +33,7 @@ object Versions {
             const val constraintLayout = "1.1.3"
             const val lifecycle = "2.0.0"
             const val recyclerView = "1.0.0"
+            const val glide = Versions.glide
         }
 
         object MultiPlatform {
@@ -55,6 +57,12 @@ object Versions {
 
             const val napier = "1.0.0"
             const val settings = "0.3.3"
+        }
+    }
+
+    object Kapt {
+        object Android {
+            const val glide = Versions.glide
         }
     }
 }

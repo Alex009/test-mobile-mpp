@@ -5,14 +5,14 @@
 package org.example.app.units
 
 import dev.icerock.moko.units.UnitItem
-import org.example.app.TileNews
+import org.example.app.TileGif
 import ru.alex009.library.feature.gifs.presentation.GifsListViewModel
 
 class GifsListUnitsFactory : GifsListViewModel.UnitsFactory {
     override fun createGifTile(id: Long, gifUrl: String): UnitItem {
-        return TileNews().apply {
+        return TileGif().apply {
             itemId = id
-            this.title = gifUrl
+            this.gifUrl = gifUrl
         }
     }
 }
