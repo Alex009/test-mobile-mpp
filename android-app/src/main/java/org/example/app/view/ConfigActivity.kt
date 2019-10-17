@@ -4,7 +4,6 @@
 
 package org.example.app.view
 
-import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import dev.icerock.moko.mvvm.MvvmEventsActivity
 import dev.icerock.moko.mvvm.createViewModelFactory
@@ -34,6 +33,6 @@ class ConfigActivity :
 
     // route called by EventsDispatcher from ViewModel (https://github.com/icerockdev/moko-mvvm)
     override fun routeToNews() {
-        Intent(this, NewsActivity::class.java).also { startActivity(it) }
+        finish()
     }
 }

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="tpQ-LY-4wm" kind="relationship" relationship="rootViewController" id="iw1-Xy-f57"/>
+                        <segue destination="rc3-Fb-lqP" kind="relationship" relationship="rootViewController" id="fWb-Bd-x97"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dpF-aw-Lyj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -38,7 +38,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e3l-s2-CcZ" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="24" y="72" width="272" height="30"/>
+                                <rect key="frame" x="24" y="28" width="272" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -47,7 +47,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IOd-DU-OXy" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="24" y="110" width="272" height="30"/>
+                                <rect key="frame" x="24" y="66" width="272" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -56,7 +56,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aeS-KV-Tvh">
-                                <rect key="frame" x="135.5" y="148" width="49" height="30"/>
+                                <rect key="frame" x="135.5" y="104" width="49" height="30"/>
                                 <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="onSubmitPressed" destination="tpQ-LY-4wm" eventType="touchUpInside" id="Dpc-tx-4t3"/>
@@ -79,14 +79,13 @@
                     <connections>
                         <outlet property="languageField" destination="IOd-DU-OXy" id="w2o-7w-Qv9"/>
                         <outlet property="tokenField" destination="e3l-s2-CcZ" id="4oM-qT-pfl"/>
-                        <segue destination="rc3-Fb-lqP" kind="show" identifier="routeToNews" id="LyH-o7-8X0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eQs-JZ-rVh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5033" y="-1482"/>
+            <point key="canvasLocation" x="-4215" y="-1482"/>
         </scene>
-        <!--News View Controller-->
+        <!--Giphy App-->
         <scene sceneID="VGx-eG-QFb">
             <objects>
                 <viewController id="rc3-Fb-lqP" customClass="NewsViewController" customModule="mokoApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -181,6 +180,13 @@
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="a21-Ii-jMd" secondAttribute="trailing" constant="16" id="yI1-xh-6Z3"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Giphy App" id="cVh-FI-nHm">
+                        <barButtonItem key="rightBarButtonItem" title="Config" id="zxJ-1p-OdU">
+                            <connections>
+                                <segue destination="tpQ-LY-4wm" kind="show" id="sSE-85-xUR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="bbj-as-yMb" id="swr-n2-hl9"/>
                         <outlet property="emptyView" destination="SRk-3N-mDE" id="yFL-YE-zAu"/>
@@ -191,7 +197,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8Y-8w-RAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4249" y="-1482"/>
+            <point key="canvasLocation" x="-5057" y="-1482"/>
         </scene>
     </scenes>
 </document>

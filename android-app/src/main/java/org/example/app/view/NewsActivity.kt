@@ -4,6 +4,8 @@
 
 package org.example.app.view
 
+import android.content.Intent
+import android.view.Menu
 import androidx.lifecycle.ViewModelProvider
 import dev.icerock.moko.mvvm.MvvmActivity
 import dev.icerock.moko.mvvm.createViewModelFactory
@@ -23,5 +25,17 @@ class NewsActivity : MvvmActivity<ActivityNewsBinding, NewsListViewModel>() {
     // ViewModel not recreating at configuration changes
     override fun viewModelFactory(): ViewModelProvider.Factory = createViewModelFactory {
         AppComponent.factory.newsFactory.createNewsListViewModel()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        super.onCreateOptionsMenu(menu)
+
+        val configItem = menu.add(R.string.config)
+        configItem.setOnMenuItemClickListener { _ ->
+            Intent(this, ConfigActivity::class.java).also { startActivity(it) }
+            true
+        }
+
+        return true
     }
 }
