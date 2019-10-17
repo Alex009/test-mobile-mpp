@@ -22,7 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         AppComponent.factory = SharedFactory(
             settings: AppleSettings(delegate: UserDefaults.standard),
             antilog: DebugAntilog(defaultTag: "MPP"),
-            baseUrl: "https://newsapi.org/v2/",
+            baseUrl: "https://api.giphy.com/v1/",
             newsUnitsFactory: NewsListUnitsFactory()
         )
         return true

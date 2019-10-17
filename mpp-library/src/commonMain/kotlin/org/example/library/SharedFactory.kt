@@ -33,11 +33,11 @@ class SharedFactory(
     val newsFactory = NewsFactory(
         newsSource = object : NewsSource {
             override suspend fun getNewsList(): List<News> {
-                return domainFactory.newsRepository.getNewsList().map { item ->
+                return domainFactory.gifRepository.getGifList("ice").map { item ->
                     News(
                         id = item.id.toLong(),
-                        title = item.fullName.orEmpty(),
-                        description = item.description
+                        title = item.previewUrl,
+                        description = item.gifUrl
                     )
                 }
             }
@@ -72,7 +72,7 @@ class SharedFactory(
             }
 
             override fun validateLanguage(value: String): StringDesc? {
-                val validValues = listOf("ru", "us")
+                val validValues = listOf("ru", "en")
                 return if (validValues.contains(value)) {
                     null
                 } else {
@@ -84,7 +84,7 @@ class SharedFactory(
             }
         },
         defaultToken = "ed155d0a445e4b4fbd878fe1f3bc1b7f",
-        defaultLanguage = "us"
+        defaultLanguage = "en"
     )
 
     init {

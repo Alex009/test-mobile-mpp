@@ -31,7 +31,7 @@ android {
 
         vectorDrawables.useSupportLibrary = true
 
-        val url = "https://newsapi.org/v2/"
+        val url = "https://api.giphy.com/v1/"
         buildConfigField("String", "BASE_URL", "\"$url\"")
     }
 
