@@ -4,6 +4,7 @@
 
 package ru.alex009.library.feature.gifs.presentation
 
+import com.github.aakira.napier.Napier
 import dev.icerock.moko.mvvm.State
 import dev.icerock.moko.mvvm.asState
 import dev.icerock.moko.mvvm.livedata.*
@@ -54,8 +55,20 @@ class GifsListViewModel(
         loadList()
     }
 
-    fun onRefresh() {
-        loadList()
+    fun onRefresh(completion: () -> Unit) {
+        val query = searchQuery.value
+
+        viewModelScope.launch {
+            try {
+                val items = gifsSource.getGifsList(query)
+
+                _state.value = items.asState()
+            } catch (error: Throwable) {
+                Napier.e("can't refresh", throwable = error)
+            } finally {
+                completion()
+            }
+        }
     }
 
     private fun setupQueryListener() {

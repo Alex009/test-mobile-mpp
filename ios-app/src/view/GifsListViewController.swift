@@ -18,6 +18,7 @@ class GifsListViewController: UIViewController {
     
     private var viewModel: GifsListViewModel!
     private var dataSource: FlatUnitTableViewDataSource!
+    private var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,9 +47,19 @@ class GifsListViewController: UIViewController {
             self?.dataSource.units = items
             self?.tableView.reloadData()
         }
+        
+        refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(onRefresh), for: .valueChanged)
     }
     
     @IBAction func onRetryPressed() {
         viewModel.onRetryPressed()
+    }
+    
+    @objc func onRefresh() {
+        viewModel.onRefresh { [weak self] in
+            self?.refreshControl.endRefreshing()
+        }
     }
 }

@@ -5,6 +5,7 @@
 package org.example.app.view
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.Menu
 import androidx.lifecycle.ViewModelProvider
 import dev.icerock.moko.mvvm.MvvmActivity
@@ -25,6 +26,16 @@ class GifsListActivity : MvvmActivity<ActivityGifsListBinding, GifsListViewModel
     // ViewModel not recreating at configuration changes
     override fun viewModelFactory(): ViewModelProvider.Factory = createViewModelFactory {
         AppComponent.factory.gifsFactory.createGifsListViewModel()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        with(binding.refreshLayout) {
+            setOnRefreshListener {
+                viewModel.onRefresh { isRefreshing = false }
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
