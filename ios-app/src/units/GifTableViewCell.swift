@@ -17,8 +17,17 @@ class GifTableViewCell: UITableViewCell, Fillable {
     
     @IBOutlet private var gifImageView: UIImageView!
     
+    private var gifDownloadTask: URLSessionDataTask?
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        gifDownloadTask?.cancel()
+        gifImageView.clear()
+    }
+    
     func fill(_ data: GifTableViewCell.CellModel) {
-        gifImageView.setGifFromURL(URL(string: data.gifUrl)!)
+        gifDownloadTask = gifImageView.setGifFromURL(URL(string: data.gifUrl)!)
     }
     
     func update(_ data: GifTableViewCell.CellModel) {
