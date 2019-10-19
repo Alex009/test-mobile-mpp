@@ -12,6 +12,9 @@ import dev.icerock.moko.resources.StringResource
 import dev.icerock.moko.resources.desc.StringDesc
 import dev.icerock.moko.resources.desc.desc
 import dev.icerock.moko.units.UnitItem
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import ru.alex009.library.feature.gifs.model.Gif
 import ru.alex009.library.feature.gifs.model.GifsSource
@@ -21,6 +24,8 @@ class GifsListViewModel(
     private val strings: Strings,
     private val unitsFactory: UnitsFactory
 ) : ViewModel() {
+
+    val searchQuery: MutableLiveData<String> = MutableLiveData("ice")
 
     private val _state: MutableLiveData<State<List<Gif>, Throwable>> =
         MutableLiveData(initialValue = State.Loading())
@@ -42,6 +47,7 @@ class GifsListViewModel(
 
     init {
         loadList()
+        setupQueryListener()
     }
 
     fun onRetryPressed() {
@@ -52,12 +58,24 @@ class GifsListViewModel(
         loadList()
     }
 
+    private fun setupQueryListener() {
+        viewModelScope.launch {
+            searchQuery
+                .asFlow()
+                .debounce(1000)
+                .distinctUntilChanged()
+                .collect { loadList() }
+        }
+    }
+
     private fun loadList() {
-        coroutineScope.launch {
+        val query = searchQuery.value
+
+        viewModelScope.launch {
             try {
                 _state.value = State.Loading()
 
-                val items = gifsSource.getGifsList("ice")
+                val items = gifsSource.getGifsList(query)
 
                 _state.value = items.asState()
             } catch (error: Throwable) {

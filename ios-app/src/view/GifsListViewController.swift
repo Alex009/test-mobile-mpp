@@ -14,6 +14,7 @@ class GifsListViewController: UIViewController {
     @IBOutlet private var emptyView: UIView!
     @IBOutlet private var errorView: UIView!
     @IBOutlet private var errorLabel: UILabel!
+    @IBOutlet private var searchTextField: UITextField!
     
     private var viewModel: GifsListViewModel!
     private var dataSource: FlatUnitTableViewDataSource!
@@ -28,6 +29,7 @@ class GifsListViewController: UIViewController {
         tableView.bindVisibility(liveData: viewModel.state.isSuccessState())
         emptyView.bindVisibility(liveData: viewModel.state.isEmptyState())
         errorView.bindVisibility(liveData: viewModel.state.isErrorState())
+        searchTextField.bindTextTwoWay(liveData: viewModel.searchQuery)
 
         // in/out generics of Kotlin removed in swift, so we should map to valid class
         let errorText: LiveData<StringDesc> = viewModel.state.error().map { $0 as? StringDesc } as! LiveData<StringDesc>

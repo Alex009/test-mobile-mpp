@@ -98,7 +98,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="maq-rv-fNa">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="110" width="320" height="458"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="bbj-as-yMb">
@@ -161,18 +161,27 @@
                                     <constraint firstAttribute="bottom" secondItem="PAM-MV-Xmm" secondAttribute="bottom" id="m6g-t5-zK4"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MbD-N1-hkB">
+                                <rect key="frame" x="16" y="72" width="288" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="a21-Ii-jMd" firstAttribute="centerX" secondItem="FGh-ZK-LS2" secondAttribute="centerX" id="1xF-sS-ETZ"/>
                             <constraint firstItem="bbj-as-yMb" firstAttribute="centerY" secondItem="FGh-ZK-LS2" secondAttribute="centerY" id="7Hz-Pe-atH"/>
+                            <constraint firstItem="MbD-N1-hkB" firstAttribute="top" secondItem="y1O-DX-kvI" secondAttribute="bottom" constant="8" id="9t4-BD-vIT"/>
                             <constraint firstItem="1nA-E3-pck" firstAttribute="top" secondItem="maq-rv-fNa" secondAttribute="bottom" id="A6j-W5-2qJ"/>
                             <constraint firstItem="SRk-3N-mDE" firstAttribute="centerY" secondItem="FGh-ZK-LS2" secondAttribute="centerY" id="CZW-UC-fOP"/>
+                            <constraint firstItem="maq-rv-fNa" firstAttribute="top" secondItem="MbD-N1-hkB" secondAttribute="bottom" constant="8" id="GvH-iT-2nM"/>
                             <constraint firstItem="a21-Ii-jMd" firstAttribute="centerY" secondItem="FGh-ZK-LS2" secondAttribute="centerY" id="JGF-1J-6a2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MbD-N1-hkB" secondAttribute="trailing" id="KNM-4x-fqF"/>
                             <constraint firstAttribute="trailing" secondItem="maq-rv-fNa" secondAttribute="trailing" id="KQS-ib-tl9"/>
                             <constraint firstItem="SRk-3N-mDE" firstAttribute="centerX" secondItem="FGh-ZK-LS2" secondAttribute="centerX" id="Qhz-yr-h7Q"/>
+                            <constraint firstItem="MbD-N1-hkB" firstAttribute="leading" secondItem="FGh-ZK-LS2" secondAttribute="leadingMargin" id="R8v-ac-NbK"/>
                             <constraint firstItem="SRk-3N-mDE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FGh-ZK-LS2" secondAttribute="leadingMargin" constant="16" id="V7W-IN-myi"/>
-                            <constraint firstItem="maq-rv-fNa" firstAttribute="top" secondItem="y1O-DX-kvI" secondAttribute="bottom" id="VYx-zR-gnP"/>
                             <constraint firstItem="bbj-as-yMb" firstAttribute="centerX" secondItem="FGh-ZK-LS2" secondAttribute="centerX" id="aRk-y1-AKk"/>
                             <constraint firstItem="maq-rv-fNa" firstAttribute="leading" secondItem="FGh-ZK-LS2" secondAttribute="leading" id="n93-8m-x91"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="SRk-3N-mDE" secondAttribute="trailing" constant="16" id="oLO-ln-Gu1"/>
@@ -192,12 +201,13 @@
                         <outlet property="emptyView" destination="SRk-3N-mDE" id="yFL-YE-zAu"/>
                         <outlet property="errorLabel" destination="gKw-y0-12b" id="lDf-7c-o8C"/>
                         <outlet property="errorView" destination="a21-Ii-jMd" id="cAz-vB-7JZ"/>
+                        <outlet property="searchTextField" destination="MbD-N1-hkB" id="YdZ-on-LQ5"/>
                         <outlet property="tableView" destination="maq-rv-fNa" id="Pcj-tw-xwI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J8Y-8w-RAa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5057" y="-1482"/>
+            <point key="canvasLocation" x="-5058.75" y="-1482.0422535211267"/>
         </scene>
     </scenes>
 </document>
